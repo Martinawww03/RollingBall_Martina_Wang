@@ -9,6 +9,14 @@ public class EjemploVector : MonoBehaviour
     {
         transform.position = new Vector3(5, 3, 0); //posición
         transform.eulerAngles = new Vector3(45, 90, 30); //rotación
+        //
+        // timer += 1 * Time.deltaTime; timer se va sumando uno por segundo
+        
+        // if(timer>=5)
+        //{
+        // Debug.log("Hola");
+        // timer=0;
+        //}
     }
 
     // Update is called once per frame
