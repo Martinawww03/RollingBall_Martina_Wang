@@ -5,10 +5,11 @@ using UnityEngine;
 public class Obstaculo : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private float velocidad = 0.5f;
-    [SerializeField] private int direccion;
+    [SerializeField] private int velocidad = 2;
+    [SerializeField] private int limiteIzquierdo = -1;
+    [SerializeField] private int limiteDerecho = 1;
     [SerializeField] private float timer = 0f;
-    bool alarmaActivada = true;
+    [SerializeField] private int direccion = 1;
 
     void Start()
     {
@@ -17,8 +18,17 @@ public class Obstaculo : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {  
-        
-     transform.Translate(1, 0, 0 * velocidad * Time.deltaTime);   
+    {
+
+        transform.Translate(direccion * velocidad * Time.deltaTime, 0, 0);
+
+        if (transform.position.x > limiteDerecho) 
+        {
+            direccion = -1;
+        }
+        else if (transform.position.x < limiteIzquierdo) 
+        {
+            direccion = 1;
+        }
     }
 }
