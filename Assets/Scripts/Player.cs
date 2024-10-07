@@ -5,12 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] private int velocity = 1;
+    [SerializeField] private int fuerza = 2;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -19,9 +19,9 @@ public class Player : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        if(Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.Space)) 
         {
-            rb.AddForce(new Vector3(0, 1, 0), ForceMode.Force);
+            rb.AddForce(new Vector3(0, 1, 0) * fuerza, ForceMode.Impulse);
 
         }
 
