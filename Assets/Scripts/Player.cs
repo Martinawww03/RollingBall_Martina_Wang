@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.D))
         {
-            rb.AddForce(new Vector3(1, 0, 0), ForceMode.Force);
+            rb.AddForce(new Vector3(0, 1, 0), ForceMode.Force);
 
         }
 
