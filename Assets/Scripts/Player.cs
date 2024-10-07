@@ -18,9 +18,7 @@ public class Player : MonoBehaviour
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
 
-        Vector3 movimiento = new Vector3(h, 0.0f, v);
-
-        transform.Translate(movimiento);
+       
 
     }
 }
