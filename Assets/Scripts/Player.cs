@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float velocidad = 0.1f;
+    Rigidbody rb;
+    [SerializeField] private int velocity = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,12 @@ public class Player : MonoBehaviour
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
+
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            rb.AddForce(new Vector3(1, 0, 0), ForceMode.Force);
+
+        }
 
        
 
