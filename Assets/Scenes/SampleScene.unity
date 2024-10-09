@@ -1261,6 +1261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuerza: 2
+  velocity: 5
 --- !u!54 &1729074713
 Rigidbody:
   m_ObjectHideFlags: 0
