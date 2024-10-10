@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     Rigidbody rb;
     [SerializeField] private int fuerza = 2;
     [SerializeField] private int velocity = 5;
-    int puntacion;
+    int puntuacion;
     [SerializeField] TMP_Text textPuntuacion;
     // Start is called before the first frame update
     void Start()
@@ -56,6 +56,8 @@ public class Player : MonoBehaviour
         if(other.gameObject.CompareTag("Coleccionable"))
         {
           Destroy(gameObject);
+            puntuacion += 1;
+            textPuntuacion.text = "Score: " + puntuacion;
 
         }
     }
