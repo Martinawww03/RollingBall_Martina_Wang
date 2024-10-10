@@ -15,6 +15,6 @@ public class Obstaculo2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.AddTorque(new Vector3(0, 1, 0) * fuerza, ForceMode.Force);
+        rb.AddTorque(new Vector3(0, 1, 0) * fuerza, ForceMode.Impulse);
     }
 }
