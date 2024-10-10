@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Coleccionable"))
         {
-          Destroy(gameObject);
+          Destroy(other.gameObject);
             puntuacion += 1;
             textPuntuacion.text = "Score: " + puntuacion;
 
