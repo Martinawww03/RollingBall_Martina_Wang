@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
     Rigidbody rb;
     [SerializeField] private int fuerza = 2;
     [SerializeField] private int velocity = 5;
+    int puntacion;
+    [SerializeField] TMP_Text textPuntuacion;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,9 +48,19 @@ public class Player : MonoBehaviour
         {
             transform.Translate(new Vector3(0, 0, 1).normalized * velocity * Time.deltaTime);
 
-        }
+        }  
 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Coleccionable"))
+        {
+          Destroy(gameObject);
+
+        }
+    }
+
+
     // private void FixedUpdate()
     // {
     //   GetComponent<Rigidbody>().AddForce(Vector3.forward * 3, ForceMode.Force); 

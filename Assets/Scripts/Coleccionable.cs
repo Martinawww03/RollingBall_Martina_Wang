@@ -15,4 +15,6 @@ public class Coleccionable : MonoBehaviour
     {
         transform.Rotate(new Vector3(-40, 30, 0) * Time.deltaTime);
     }
+
+   
 }

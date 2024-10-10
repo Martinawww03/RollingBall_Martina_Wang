@@ -1464,6 +1464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuerza: 2
   velocity: 5
+  textPuntuacion: {fileID: 58476167}
 --- !u!54 &1729074713
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1872,12 +1873,12 @@ PrefabInstance:
     - target: {fileID: 3544645850549030477, guid: f315b1ae374a84f479ddc441fa893262,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1162.1
+      value: 1159.41
       objectReference: {fileID: 0}
     - target: {fileID: 3544645850549030477, guid: f315b1ae374a84f479ddc441fa893262,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -31.36
+      value: 4.79
       objectReference: {fileID: 0}
     - target: {fileID: 3544645850549030477, guid: f315b1ae374a84f479ddc441fa893262,
         type: 3}
@@ -1918,6 +1919,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Colecionable
+      objectReference: {fileID: 0}
+    - target: {fileID: 5988819412255026201, guid: f315b1ae374a84f479ddc441fa893262,
+        type: 3}
+      propertyPath: m_TagString
+      value: Coleccionable
+      objectReference: {fileID: 0}
+    - target: {fileID: 8209866999560197360, guid: f315b1ae374a84f479ddc441fa893262,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
