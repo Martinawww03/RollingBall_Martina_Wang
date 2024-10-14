@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CambioCamara : MonoBehaviour
 {
-    [SerializeField]GameObject camAApagar;
-    [SerializeField]GameObject camEncender;
+    [SerializeField]GameObject camaraA;
+    [SerializeField]GameObject camaraB;
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -22,8 +22,12 @@ public class CambioCamara : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            camAApagar.SetActive(false);
-            camEncender.SetActive(true);
+            if(camaraA.activeSelf)
+            {
+            camaraA.SetActive(false);
+            camaraB.SetActive(true);
+
+            }
 
         }
     }
