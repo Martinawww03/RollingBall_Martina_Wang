@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int velocity = 5;
     int puntuacion;
     [SerializeField] TMP_Text textPuntuacion;
+    [SerializeField] private float distanciaRaycast;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +26,19 @@ public class Player : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space)) 
         {
+            //Mira a ver si detectas suelo...
+            if(DetectaSuelo()==true)
+            {
+
             rb.AddForce(new Vector3(0, 1, 0) * fuerza, ForceMode.Impulse);
+
+            }
 
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
+            
             transform.Translate(new Vector3(1, 0, 0).normalized * velocity * Time.deltaTime);
 
         }
@@ -61,6 +69,16 @@ public class Player : MonoBehaviour
 
         }
     }
+
+    private bool DetectaSuelo()
+    {
+        bool resultado = Physics.Raycast(transform.position, Vector3.down, distanciaRaycast);
+        Debug.DrawRay(transform.position, Vector3.down, Color.red, 2f);
+        return resultado;
+
+        
+    }
+    
 
 
     // private void FixedUpdate()

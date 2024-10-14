@@ -28,6 +28,12 @@ public class CambioCamara : MonoBehaviour
             camaraB.SetActive(true);
 
             }
+            else
+            {
+                camaraA.SetActive(true);
+                camaraB.SetActive(false);
+
+            }
 
         }
     }
