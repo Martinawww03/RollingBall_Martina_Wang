@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
             if(DetectaSuelo()==true)
             {
 
-            rb.AddForce(new Vector3(0, 1, 0) * fuerza, ForceMode.Impulse);
+             rb.AddForce(new Vector3(0, 1, 0) * fuerza, ForceMode.Impulse);
 
             }
 
