@@ -21,6 +21,7 @@ public class ParedPiedra : MonoBehaviour
                 for(int i = 0; i < rbs.Length; i++)
                 {
                  rbs[i].useGravity = true;
+
                 }
             }
          }
