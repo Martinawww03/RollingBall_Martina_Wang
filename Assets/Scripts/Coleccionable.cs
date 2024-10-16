@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Coleccionable : MonoBehaviour
 {
+    [SerializeField] private AudioClip sonidoCling;
+    [SerializeField] private AudioManager miManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +18,13 @@ public class Coleccionable : MonoBehaviour
     {
         transform.Rotate(new Vector3(-40, 30, 0) * Time.deltaTime);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            miManager.ReproducirSonido(sonidoCling);
+        }
+    }
 
-   
+
 }
