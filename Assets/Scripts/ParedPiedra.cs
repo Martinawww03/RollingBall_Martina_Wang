@@ -6,6 +6,7 @@ public class ParedPiedra : MonoBehaviour
 {
     private bool inciarTimer;
     private float timer = 0;
+    [SerializeField] private Rigidbody[] rbs; //[] rigidbodyS
 
     private void Update()
     {
@@ -15,6 +16,12 @@ public class ParedPiedra : MonoBehaviour
             if(timer >= 2)
             {
                 Time.timeScale = 1;
+
+                //Recorro el array de rbs para volverles a poner gravedad
+                for(int i = 0; i < rbs.Length; i++)
+                {
+                 rbs[i].useGravity = true;
+                }
             }
          }
     }
