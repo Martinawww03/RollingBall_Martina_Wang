@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float x= Input.GetAxisRaw("Vertical"), y = 0, z = -Input.GetAxisRaw("Horizontal");
+        float x= Input.GetAxisRaw("Horizontal"), y = 0, z = Input.GetAxisRaw("Vertical");
         rb.AddForce(new Vector3(x, y, z).normalized * velocity, ForceMode.Force);
         
     }
