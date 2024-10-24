@@ -37,26 +37,26 @@ public class Player : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(new Vector3(1, 0, 0).normalized * velocity * Time.deltaTime);
-
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(new Vector3(-1, 0, 0).normalized * velocity * Time.deltaTime);
-
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(new Vector3(0, 0, -1).normalized * velocity * Time.deltaTime);
-
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(new Vector3(0, 0, 1).normalized * velocity * Time.deltaTime);
-
-        }  
+       //if (Input.GetKey(KeyCode.A))
+       //{
+       //    transform.Translate(new Vector3(1, 0, 0).normalized * velocity * Time.deltaTime);
+       //
+       //}
+       //if (Input.GetKey(KeyCode.D))
+       //{
+       //    transform.Translate(new Vector3(-1, 0, 0).normalized * velocity * Time.deltaTime);
+       //
+       //}
+       //if (Input.GetKey(KeyCode.W))
+       //{
+       //    transform.Translate(new Vector3(0, 0, -1).normalized * velocity * Time.deltaTime);
+       //
+       //}
+       //if (Input.GetKey(KeyCode.S))
+       //{
+       //    transform.Translate(new Vector3(0, 0, 1).normalized * velocity * Time.deltaTime);
+       //
+       //}  
 
     }
     private void OnTriggerEnter(Collider other)
@@ -78,12 +78,13 @@ public class Player : MonoBehaviour
 
         
     }
-    
 
 
-    // private void FixedUpdate()
-    // {
-    //   GetComponent<Rigidbody>().AddForce(Vector3.forward * 3, ForceMode.Force); 
-    //     
-    // }
+
+    private void FixedUpdate()
+    {
+        float x= Input.GetAxisRaw("Vertical"), y = 0, z = -Input.GetAxisRaw("Horizontal");
+        rb.AddForce(new Vector3(x, y, z).normalized * velocity, ForceMode.Force);
+        
+    }
 }
