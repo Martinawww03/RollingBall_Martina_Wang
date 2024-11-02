@@ -7,10 +7,12 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] private int fuerza = 2;
-    [SerializeField] private int velocity = 5;
+    [SerializeField] private int fuerza = 4;
+    [SerializeField] private int velocity = 2;
     int puntuacion;
+    int vidas = 5;
     [SerializeField] TMP_Text textPuntuacion;
+    [SerializeField] TMP_Text textVidas;
     [SerializeField] private float distanciaRaycast;
     // Start is called before the first frame update
     void Start()
@@ -35,29 +37,6 @@ public class Player : MonoBehaviour
             }
 
         }
-
-
-       //if (Input.GetKey(KeyCode.A))
-       //{
-       //    transform.Translate(new Vector3(1, 0, 0).normalized * velocity * Time.deltaTime);
-       //
-       //}
-       //if (Input.GetKey(KeyCode.D))
-       //{
-       //    transform.Translate(new Vector3(-1, 0, 0).normalized * velocity * Time.deltaTime);
-       //
-       //}
-       //if (Input.GetKey(KeyCode.W))
-       //{
-       //    transform.Translate(new Vector3(0, 0, -1).normalized * velocity * Time.deltaTime);
-       //
-       //}
-       //if (Input.GetKey(KeyCode.S))
-       //{
-       //    transform.Translate(new Vector3(0, 0, 1).normalized * velocity * Time.deltaTime);
-       //
-       //}  
-
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -68,7 +47,19 @@ public class Player : MonoBehaviour
             textPuntuacion.text = "Score: " + puntuacion;
 
         }
+        if(other.gameObject.CompareTag("Trampa"))
+        {
+            Destroy(other.gameObject);
+            vidas -= 1;
+            textVidas.text = "Vidas: " + vidas;
+        }
+        if(other.gameObject.CompareTag("Block"))
+        {
+            Destroy(this.gameObject);
+        }
     }
+
+
 
     private bool DetectaSuelo()
     {
