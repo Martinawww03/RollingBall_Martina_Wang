@@ -6,6 +6,7 @@ public class ParedPiedra : MonoBehaviour
 {
     private bool inciarTimer;
     private float timer = 0;
+    [SerializeField] private float tiempoBala;
     [SerializeField] private Rigidbody[] rbs; //[] rigidbodyS
 
     private void Update()
@@ -13,9 +14,9 @@ public class ParedPiedra : MonoBehaviour
          if(inciarTimer==true)
          {
             timer += 1 * Time.unscaledDeltaTime; //no afecta a tiempo
-            if(timer >= 2)
+            if(timer >= 2f)
             {
-                Time.timeScale = 1;
+                Time.timeScale = 1f;
 
                 //Recorro el array de rbs para volverles a poner gravedad
                 for(int i = 0; i < rbs.Length; i++)
@@ -31,7 +32,7 @@ public class ParedPiedra : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
 
-            Time.timeScale = 0.2f;
+            Time.timeScale = tiempoBala;
             inciarTimer = true;
             
         }

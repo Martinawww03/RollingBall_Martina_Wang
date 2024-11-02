@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int velocity = 2;
     int puntuacion;
     int vidas = 5;
+    private Vector3 posicionInicial;
     [SerializeField] TMP_Text textPuntuacion;
     [SerializeField] TMP_Text textVidas;
     [SerializeField] private float distanciaRaycast;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        posicionInicial= transform.position;
     }
 
     // Update is called once per frame
@@ -55,7 +57,15 @@ public class Player : MonoBehaviour
         }
         if(other.gameObject.CompareTag("Block"))
         {
-            Destroy(this.gameObject);
+            Rigidbody playerrigidbody= this.gameObject.GetComponent<Rigidbody>();
+            if(playerrigidbody != null)
+            {
+                playerrigidbody.velocity = Vector3.zero; //para que la fisica se detenga 
+                playerrigidbody.MovePosition (new Vector3 (67.63461f, 1158.571f, 73.91f)); //mover el jugador en la cordenada puesto
+                playerrigidbody.useGravity = true; //Reactivar la fisica
+
+
+            }
         }
     }
 
