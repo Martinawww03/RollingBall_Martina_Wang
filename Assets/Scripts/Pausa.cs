@@ -24,8 +24,16 @@ public class Pausa : MonoBehaviour
                 Time.timeScale = 0;
 
             }
+            else
+            {
+                ObjectoMenuPausa.SetActive(false);
+                pausa = false;
+                Time.timeScale = 1;
+
+            }
 
         }
+        
         
     }
 }
