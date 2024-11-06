@@ -24,6 +24,7 @@ public class Pausa : MonoBehaviour
                 Time.timeScale = 0;
 
             }
+
         }
         
     }
