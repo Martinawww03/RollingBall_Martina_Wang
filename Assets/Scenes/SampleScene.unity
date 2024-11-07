@@ -13771,7 +13771,7 @@ GameObject:
   - component: {fileID: 6808768348296624506}
   m_Layer: 0
   m_Name: Cabin_Body
-  m_TagString: Untagged
+  m_TagString: Casa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

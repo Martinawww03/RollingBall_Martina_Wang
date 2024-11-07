@@ -6,17 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            TerminarJuego();
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Player"))
+    //    {
+    //        TerminarJuego();
+    //    }
+    //}
 
-    public void TerminarJuego()
-    {
-        SceneManager.LoadScene(2);
+    //public void TerminarJuego()
+    //{
+    //    SceneManager.LoadScene(2);
 
-    }
+    //}
 }

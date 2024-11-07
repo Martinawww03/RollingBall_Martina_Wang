@@ -74,6 +74,10 @@ public class Player : MonoBehaviour
                 playerrigidbody.useGravity = true; //Reactivar la fisica
             }
         }
+        if (other.gameObject.CompareTag("Casa"))
+        {
+            GameOver();
+        }
     }
 
 
