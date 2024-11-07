@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private int fuerza = 4;
     [SerializeField] private int velocity = 2;
     int puntuacion;
-    int vidas = 5;
+
+    [SerializeField] private int vidas = 5;
     private Vector3 posicionInicial;
     [SerializeField] TMP_Text textPuntuacion;
     [SerializeField] TMP_Text textVidas;
@@ -33,12 +35,17 @@ public class Player : MonoBehaviour
             //Mira a ver si detectas suelo...
             if(DetectaSuelo()==true)
             {
-
              rb.AddForce(new Vector3(0, 1, 0) * fuerza, ForceMode.Impulse);
-
             }
-
         }
+        if (vidas <= 0)
+        {
+            GameOver();
+        }
+    }
+    private void GameOver()
+    {
+        SceneManager.LoadScene(2);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -46,7 +53,7 @@ public class Player : MonoBehaviour
         {
           Destroy(other.gameObject);
             puntuacion += 1;
-            textPuntuacion.text = "Score: " + puntuacion;
+            textPuntuacion.text = "MUSHROOMS: " + puntuacion;
 
         }
         if(other.gameObject.CompareTag("Trampa"))
@@ -60,11 +67,11 @@ public class Player : MonoBehaviour
             Rigidbody playerrigidbody= this.gameObject.GetComponent<Rigidbody>();
             if(playerrigidbody != null)
             {
+                vidas -= 1;
+                textVidas.text = "Vidas: " + vidas;
                 playerrigidbody.velocity = Vector3.zero; //para que la fisica se detenga 
                 playerrigidbody.MovePosition (new Vector3 (67.63461f, 1158.571f, 73.91f)); //mover el jugador en la cordenada puesto
                 playerrigidbody.useGravity = true; //Reactivar la fisica
-
-
             }
         }
     }
@@ -76,10 +83,7 @@ public class Player : MonoBehaviour
         bool resultado = Physics.Raycast(transform.position, Vector3.down, distanciaRaycast);
         Debug.DrawRay(transform.position, Vector3.down, Color.red, 2f);
         return resultado;
-
-        
     }
-
 
 
     private void FixedUpdate()
@@ -88,4 +92,5 @@ public class Player : MonoBehaviour
         rb.AddForce(new Vector3(x, y, z).normalized * velocity, ForceMode.Force);
         
     }
+
 }

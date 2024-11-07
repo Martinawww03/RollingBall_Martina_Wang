@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 1881920288}
   - component: {fileID: 1881920287}
   m_Layer: 5
-  m_Name: Play
+  m_Name: Volver al menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
